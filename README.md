@@ -66,3 +66,15 @@ total contaminated records: 8
 - [Glossary](#glossary)
 - [Integration notes](#integration-notes)
 - [Verification](#verification)
+- [Limitations](#limitations)
+- [Roadmap](#roadmap)
+- [License](#license)
+
+## The problem
+
+You train a model, you evaluate it on a held-out split, and the numbers look
+good. Then someone asks whether any evaluation item was already in the training
+data. If it was, the score measures memorisation, not generalisation, and the
+result is worthless for deciding whether to ship.
+
+Contamination is easy to introduce and hard to see. A dataset is assembled from
