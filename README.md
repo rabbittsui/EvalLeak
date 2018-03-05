@@ -41,3 +41,15 @@ intra-split duplicates:
 contamination rate per split pair (source -> target):
   test -> train: 2/6 = 33.33%
   train -> test: 2/3 = 66.67%
+  train -> validation: 1/3 = 33.33%
+  validation -> train: 1/6 = 16.67%
+
+total contaminated records: 8
+```
+
+> The sample corpus has 8 distinct contaminated records across its three splits.
+
+## Contents
+
+- [The problem](#the-problem)
+- [What EvalLeak checks](#what-evalleak-checks)
