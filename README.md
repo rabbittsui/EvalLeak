@@ -78,3 +78,15 @@ data. If it was, the score measures memorisation, not generalisation, and the
 result is worthless for deciding whether to ship.
 
 Contamination is easy to introduce and hard to see. A dataset is assembled from
+several sources, deduplicated loosely or not at all, then split into train,
+validation, and test. The same paragraph can arrive through two sources with
+different whitespace, different capitalisation, or a stray edit, and land on
+both sides of the split. A question can appear on its own in the test set and
+also as one paragraph inside a longer training document. None of this is visible
+by eye once the corpus passes a few hundred records.
+
+EvalLeak reads the split manifests and reports exactly which records overlap,
+naming the record ids, so the finding is actionable. An aggregate rate tells you
+that you have a problem. It does not tell you which records to remove.
+
+## What EvalLeak checks
