@@ -103,3 +103,15 @@ Given two or more split manifests, EvalLeak runs four checks:
 
 Every check is offline, deterministic, and built on the Python standard library
 only. There is no network access anywhere in the code.
+
+## Install and run
+
+EvalLeak targets Python 3.11 and has no third-party runtime dependencies. Run it
+straight from a checkout with the package on the path:
+
+```
+$ PYTHONPATH=src python -m evalleak version
+evalleak 0.1.0
+```
+
+Or install it and use the console script:
