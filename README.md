@@ -115,3 +115,15 @@ evalleak 0.1.0
 ```
 
 Or install it and use the console script:
+
+```
+pip install .
+evalleak report split_a.manifest split_b.manifest
+```
+
+A manifest is a small line-oriented text file. It declares one split name, then
+lists records, each with an id and a single line of text:
+
+```
+split: train
+
