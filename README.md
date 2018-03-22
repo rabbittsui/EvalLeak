@@ -127,3 +127,16 @@ lists records, each with an id and a single line of text:
 ```
 split: train
 
+id: t1
+text: The mitochondria is the powerhouse of the cell and supplies chemical energy.
+
+id: t2
+text: Photosynthesis converts light energy into chemical energy stored in glucose.
+```
+
+Comment lines begin with a hash. A record must have both an `id:` and a `text:`
+line, and ids must be unique within a split. A malformed manifest is a usage
+error, not a silent skip.
+
+## The four detectors
+
