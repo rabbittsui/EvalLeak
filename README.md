@@ -164,3 +164,16 @@ usable gate on its own.
 
 Follow `validation/v1` through the pipeline. Its raw text is:
 
+```
+THE MITOCHONDRIA IS THE POWERHOUSE OF THE CELL, AND IT SUPPLIES CHEMICAL ENERGY!!!
+```
+
+The training record `train/t1` is:
+
+```
+The mitochondria is the powerhouse of the cell and supplies chemical energy.
+```
+
+First, normalisation runs with all three steps on. Whitespace is collapsed, case
+is folded to lower, and ASCII punctuation is dropped and re-collapsed. Both
+records become close but not identical, because `v1` still carries the inserted
