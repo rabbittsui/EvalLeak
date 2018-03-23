@@ -140,3 +140,15 @@ error, not a silent skip.
 
 ## The four detectors
 
+The `exact` and `near` subcommands run one detector each and print just that
+class of finding. The `report` subcommand runs all four and prints the full
+picture, including the per-pair rates. Here are the two focused subcommands
+against the samples:
+
+```
+$ PYTHONPATH=src python -m evalleak exact samples/train.manifest samples/validation.manifest samples/test.manifest
+exact cross-split duplicates:
+  test/e1 == train/t2  digest=61b2a8f4c53e
+```
+
+```
