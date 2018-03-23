@@ -201,3 +201,16 @@ Each finding class maps to a different action:
 | containment      | Evaluation item sits inside a longer training record       | Remove the item, or exclude the training passage     |
 | intra-split      | Duplicate inside one split                                 | Deduplicate before reporting split sizes             |
 
+The directional rates tell you where the damage lands. A high `train -> test`
+rate is the worst case, because it inflates the headline score. A high
+`test -> train` rate for the same pair is the same records viewed from the other
+side, and the smaller denominator, the test split, is usually the number to act
+on.
+
+## Report format, field by field
+
+The `report` output is line oriented so it diffs cleanly in git. The fields are:
+
+| Section                  | Line shape                                             | Meaning                                                        |
+|--------------------------|--------------------------------------------------------|----------------------------------------------------------------|
+| header                   | `evalleak contamination report`                        | Fixed banner                                                   |
