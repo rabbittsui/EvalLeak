@@ -226,3 +226,15 @@ The `report` output is line oriented so it diffs cleanly in git. The fields are:
 The digest is truncated to 12 hex characters for readability. The full sha256 is
 computed internally; the prefix is enough to correlate two lines by eye.
 
+## Exit codes
+
+| Code | Meaning                                                         |
+|------|-----------------------------------------------------------------|
+| 0    | Clean, no findings for the subcommand that ran                  |
+| 1    | Findings present                                                |
+| 2    | Usage error, including a missing or malformed manifest          |
+
+argparse itself exits with 2 on an unknown flag or a missing argument, which
+matches the usage-error code.
+
+## Normalisation, and why each step is switchable
