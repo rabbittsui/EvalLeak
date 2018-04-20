@@ -263,3 +263,15 @@ survives every step.
 Line-oriented text manifests over JSON. The fixtures and the output both need to
 diff cleanly, and a record body full of punctuation is awkward to keep readable
 inside escaped JSON strings. The rejected alternative was JSON Lines, which is
+more standard but harder to author and read by hand, and the whole point of the
+sample fixtures is that a person can see the planted cases at a glance.
+
+MinHash over exact Jaccard for the near check. Exact Jaccard needs the full
+shingle set for every record and a set intersection for every pair, which is
+quadratic in both records and record length. A MinHash signature is a fixed size
+regardless of record length, and the comparison is a cheap count of matching
+minima. The cost is an estimate with error bounds rather than an exact number.
+The rejected alternative, exact Jaccard, is what the test suite uses to bound the
+estimate error, so the trade is measured, not assumed.
+
+hashlib for the MinHash permutations. A real MinHash usually draws random hash
