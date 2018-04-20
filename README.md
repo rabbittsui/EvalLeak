@@ -238,3 +238,16 @@ argparse itself exits with 2 on an unknown flag or a missing argument, which
 matches the usage-error code.
 
 ## Normalisation, and why each step is switchable
+
+Normalisation decides which records count as "the same", and it is the single
+biggest lever on the result. More aggressive normalisation collapses more surface
+differences and reports more contamination. Each step is a separate flag so the
+aggressiveness is visible and so you can see which transformation caused a match:
+
+| Step        | Flag to disable    | Effect                                             |
+|-------------|--------------------|----------------------------------------------------|
+| whitespace  | `--no-whitespace`  | Collapse every run of whitespace to one space      |
+| case        | `--no-case`        | Lowercase the text                                 |
+| punctuation | `--no-punctuation` | Drop ASCII punctuation, then re-collapse whitespace|
+
+The default enables all three, the most aggressive setting. For contamination
