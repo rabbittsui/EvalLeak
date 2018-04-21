@@ -275,3 +275,16 @@ The rejected alternative, exact Jaccard, is what the test suite uses to bound th
 estimate error, so the trade is measured, not assumed.
 
 hashlib for the MinHash permutations. A real MinHash usually draws random hash
+coefficients. That would make the output depend on a seed, which breaks the
+byte-identical determinism the project requires. Instead each of the 128
+"permutations" is sha256 salted with its index, so the signature is a pure
+function of the input. The rejected alternative, seeded randomness, would have
+needed the seed recorded in the output and would still surprise anyone diffing
+two runs.
+
+Containment as normalised substring search, separate from the near check. A short
+item inside a long document has a low whole-record Jaccard, because the long
+document contributes many shingles the item does not share, so the near check
+misses it. Substring search after normalisation catches it directly. The
+`min_length` guard exists because a very short item is contained in almost any
+document by chance, which would be noise, not contamination.
