@@ -288,3 +288,15 @@ document contributes many shingles the item does not share, so the near check
 misses it. Substring search after normalisation catches it directly. The
 `min_length` guard exists because a very short item is contained in almost any
 document by chance, which would be noise, not contamination.
+
+Directional rates rather than one symmetric number. Leaking a training record
+into a small test split is far worse than the reverse, and a single symmetric
+overlap number would hide the direction. Reporting both directions costs two
+lines and keeps the asymmetry visible.
+
+## The split overlap graphic
+
+![Bar chart of record counts per split, train six, validation three, test three,
+with a table of contamination findings between split pairs: train and test two,
+train and validation one, validation and test zero.](docs/assets/split-overlap.svg)
+
