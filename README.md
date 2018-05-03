@@ -312,3 +312,16 @@ thing to look at first.
 evalleak/
   README.md                     this file
   LICENSE                       MIT, holder "Xiaoxiao Cui", 2026
+  CHANGELOG.md                  release notes
+  .gitignore                    ignore build and cache artefacts
+  pyproject.toml                setuptools, src layout, console script
+  src/evalleak/
+    __init__.py                 package version
+    __main__.py                 enables python -m evalleak
+    cli.py                      argparse subcommands: exact, near, report, version
+    records.py                  split manifest parsing
+    normalise.py                switchable whitespace, case, punctuation steps
+    shingle.py                  character k-shingles and a hashlib MinHash sketch
+    containment.py              prefix, suffix, interior substring containment
+    overlap.py                  pairwise comparison and directional rates
+    report.py                   line-oriented rendering
