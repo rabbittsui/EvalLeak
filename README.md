@@ -300,3 +300,15 @@ lines and keeps the asymmetry visible.
 with a table of contamination findings between split pairs: train and test two,
 train and validation one, validation and test zero.](docs/assets/split-overlap.svg)
 
+Every number in the graphic comes from the `report` run shown at the top of this
+file: the record counts per split, the count of cross-split findings for each
+split pair, and the total of eight contaminated records. The bars use the slate
+ink, and the one accent, amber, is reserved for the contamination edges, the
+thing to look at first.
+
+## Repository layout
+
+```
+evalleak/
+  README.md                     this file
+  LICENSE                       MIT, holder "Xiaoxiao Cui", 2026
