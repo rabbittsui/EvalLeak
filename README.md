@@ -337,3 +337,15 @@ evalleak/
     split-overlap.svg           record counts and contamination, real numbers
 ```
 
+## Glossary
+
+- Split: a named partition of a dataset, such as train, validation, or test.
+- Manifest: the text file that declares one split and lists its records.
+- Record: one text item in a split, with an id and a body.
+- Normalisation: the whitespace, case, and punctuation transforms applied before
+  comparison.
+- Digest: the sha256 hash of a record's normalised text. Equal digests mean an
+  exact duplicate under the current normalisation.
+- Shingle: a fixed-length substring. EvalLeak uses character 5-shingles by
+  default.
+- Jaccard similarity: the size of the intersection over the size of the union of
