@@ -374,3 +374,15 @@ diff them; new or removed finding lines are the signal.
 
 ## Verification
 
+The four project checks were run in this session:
+
+```
+$ PYTHONPATH=src python -m unittest discover -s tests -v
+...
+Ran 35 tests in 0.862s
+
+OK
+```
+
+The 35 tests cover manifest parsing and its error cases, each normalisation step
+in isolation, shingle construction on short and long text, the MinHash estimate
