@@ -5,3 +5,5 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "evalleak"
 version = "0.1.0"
+description = "Detect contamination between training and evaluation splits."
+readme = "README.md"
