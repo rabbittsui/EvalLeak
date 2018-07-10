@@ -17,3 +17,5 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 
+[project.scripts]
+evalleak = "evalleak.cli:main"
