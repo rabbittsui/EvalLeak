@@ -8,3 +8,7 @@ seen the answer, yet neither the digest nor the Jaccard of the whole records
 matches.
 
 This module detects that. For an ordered pair (short, long) it reports
+containment when the normalised short text is a substring of the normalised
+long text. It classifies the position as prefix, suffix, or interior so a
+reader can judge how the item sits inside the record.
+
