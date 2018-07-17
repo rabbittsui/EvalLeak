@@ -19,3 +19,5 @@ classifiers = [
 
 [project.scripts]
 evalleak = "evalleak.cli:main"
+
+[tool.setuptools.packages.find]
