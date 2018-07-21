@@ -20,3 +20,7 @@ normalised short text.
 from __future__ import annotations
 
 from dataclasses import dataclass
+
+from .normalise import NormaliseConfig, normalise
+
+
