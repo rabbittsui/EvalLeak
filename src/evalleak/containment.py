@@ -24,3 +24,7 @@ from dataclasses import dataclass
 from .normalise import NormaliseConfig, normalise
 
 
+@dataclass(frozen=True)
+class Containment:
+    """A containment finding: short_id sits inside long_id."""
+
