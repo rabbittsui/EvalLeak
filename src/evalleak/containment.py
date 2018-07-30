@@ -32,3 +32,7 @@ class Containment:
     long_id: str
     position: str  # "prefix", "suffix", or "interior"
 
+
+def _position(haystack: str, needle: str) -> str:
+    if haystack.startswith(needle):
+        return "prefix"
