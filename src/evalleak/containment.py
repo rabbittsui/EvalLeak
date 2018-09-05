@@ -36,3 +36,7 @@ class Containment:
 def _position(haystack: str, needle: str) -> str:
     if haystack.startswith(needle):
         return "prefix"
+    if haystack.endswith(needle):
+        return "suffix"
+    return "interior"
+
