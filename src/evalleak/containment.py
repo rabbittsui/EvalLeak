@@ -40,3 +40,6 @@ def _position(haystack: str, needle: str) -> str:
         return "suffix"
     return "interior"
 
+
+def find_containment(
+    short_text: str,
