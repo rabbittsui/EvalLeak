@@ -54,3 +54,15 @@ class ContainmentMatch:
     id_short: str
     split_long: str
     id_long: str
+    position: str
+
+
+@dataclass(frozen=True)
+class IntraDuplicate:
+    split: str
+    id_a: str
+    id_b: str
+    digest: str
+
+
+@dataclass(frozen=True)
