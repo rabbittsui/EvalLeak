@@ -42,3 +42,15 @@ class ExactMatch:
 @dataclass(frozen=True)
 class NearMatch:
     split_a: str
+    id_a: str
+    split_b: str
+    id_b: str
+    jaccard: float
+
+
+@dataclass(frozen=True)
+class ContainmentMatch:
+    split_short: str
+    id_short: str
+    split_long: str
+    id_long: str
