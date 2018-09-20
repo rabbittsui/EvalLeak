@@ -66,3 +66,15 @@ class IntraDuplicate:
 
 
 @dataclass(frozen=True)
+class PairRate:
+    """Contamination rate for records of `target` explained by `source`."""
+
+    source: str
+    target: str
+    contaminated: int
+    total: int
+
+    @property
+    def rate(self) -> float:
+        if self.total == 0:
+            return 0.0
