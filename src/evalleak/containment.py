@@ -51,3 +51,7 @@ def find_containment(
     """Return the containment position if short is inside long, else None.
 
     Both texts are normalised with the same config first. A short text whose
+    normalised form is below min_length characters is ignored to avoid trivial
+    coincidental matches.
+    """
+    short_norm = normalise(short_text, config)
