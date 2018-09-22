@@ -78,3 +78,15 @@ class PairRate:
     def rate(self) -> float:
         if self.total == 0:
             return 0.0
+        return self.contaminated / self.total
+
+
+@dataclass
+class OverlapReport:
+    config: NormaliseConfig
+    k: int
+    num_perm: int
+    near_threshold: float
+    min_containment: int
+    counts: dict[str, int] = field(default_factory=dict)
+    exact: list[ExactMatch] = field(default_factory=list)
