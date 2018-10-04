@@ -90,3 +90,15 @@ class OverlapReport:
     min_containment: int
     counts: dict[str, int] = field(default_factory=dict)
     exact: list[ExactMatch] = field(default_factory=list)
+    near: list[NearMatch] = field(default_factory=list)
+    containment: list[ContainmentMatch] = field(default_factory=list)
+    intra: list[IntraDuplicate] = field(default_factory=list)
+    pair_rates: list[PairRate] = field(default_factory=list)
+
+    def contaminated_ids(self) -> dict[str, set[str]]:
+        """Map each split to the set of its record ids involved in any finding."""
+        out: dict[str, set[str]] = {split: set() for split in self.counts}
+        for m in self.exact:
+            out.setdefault(m.split_a, set()).add(m.id_a)
+            out.setdefault(m.split_b, set()).add(m.id_b)
+        for m in self.near:
