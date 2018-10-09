@@ -114,3 +114,15 @@ class OverlapReport:
 
     def total_contaminated(self) -> int:
         """Return the total distinct contaminated records across all splits."""
+        return sum(len(ids) for ids in self.contaminated_ids().values())
+
+    def has_findings(self) -> bool:
+        return bool(self.exact or self.near or self.containment or self.intra)
+
+
+def _digests(manifest: Manifest, config: NormaliseConfig) -> dict[str, str]:
+    return {r.record_id: digest(r.text, config) for r in manifest.records}
+
+
+def _minhashes(
+    manifest: Manifest, config: NormaliseConfig, k: int, num_perm: int
