@@ -138,3 +138,15 @@ def _minhashes(
 
 def compare(
     manifests: list[Manifest],
+    *,
+    config: NormaliseConfig = NormaliseConfig(),
+    k: int = 5,
+    num_perm: int = 128,
+    near_threshold: float = 0.6,
+    min_containment: int = 16,
+) -> OverlapReport:
+    """Run all detectors across the given manifests and build a report.
+
+    Manifests are processed in the order given, and split pairs are compared in
+    sorted split-name order so output is deterministic.
+    """
