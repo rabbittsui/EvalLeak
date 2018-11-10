@@ -174,3 +174,15 @@ def compare(
     for name in split_names:
         records = by_split[name].records
         for i in range(len(records)):
+            for j in range(i + 1, len(records)):
+                if digests[name][records[i].record_id] == digests[name][
+                    records[j].record_id
+                ]:
+                    report.intra.append(
+                        IntraDuplicate(
+                            split=name,
+                            id_a=records[i].record_id,
+                            id_b=records[j].record_id,
+                            digest=digests[name][records[i].record_id],
+                        )
+                    )
