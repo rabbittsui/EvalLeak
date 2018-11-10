@@ -150,3 +150,15 @@ def compare(
     Manifests are processed in the order given, and split pairs are compared in
     sorted split-name order so output is deterministic.
     """
+    report = OverlapReport(
+        config=config,
+        k=k,
+        num_perm=num_perm,
+        near_threshold=near_threshold,
+        min_containment=min_containment,
+        counts={m.split: len(m) for m in manifests},
+    )
+
+    by_split = {m.split: m for m in manifests}
+    digests = {name: _digests(m, config) for name, m in by_split.items()}
+    minhashes = {
