@@ -234,3 +234,15 @@ def compare(
             for ra in recs_a:
                 for rb in recs_b:
                     if (ra.record_id, rb.record_id) in exact_pairs:
+                        continue
+                    ta = texts[name_a][ra.record_id]
+                    tb = texts[name_b][rb.record_id]
+                    if len(ta) <= len(tb):
+                        pos = find_containment(
+                            ta, tb, config=config, min_length=min_containment
+                        )
+                        if pos is not None:
+                            report.containment.append(
+                                ContainmentMatch(
+                                    split_short=name_a,
+                                    id_short=ra.record_id,
