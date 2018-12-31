@@ -22,3 +22,8 @@ import hashlib
 from dataclasses import dataclass
 
 _MAX_HASH = (1 << 64) - 1
+
+
+def shingles(text: str, k: int = 5) -> set[str]:
+    """Return the set of character k-shingles of text.
+
