@@ -27,3 +27,8 @@ _MAX_HASH = (1 << 64) - 1
 def shingles(text: str, k: int = 5) -> set[str]:
     """Return the set of character k-shingles of text.
 
+    If the text is shorter than k, the whole text is returned as one shingle so
+    short records still compare sensibly.
+    """
+    if k <= 0:
+        raise ValueError("k must be positive")
