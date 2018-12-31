@@ -32,3 +32,8 @@ def shingles(text: str, k: int = 5) -> set[str]:
     """
     if k <= 0:
         raise ValueError("k must be positive")
+    if len(text) <= k:
+        return {text} if text else set()
+    return {text[i : i + k] for i in range(len(text) - k + 1)}
+
+
