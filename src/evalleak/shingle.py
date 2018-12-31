@@ -17,3 +17,8 @@ with the permutation index. The same input always yields the same signature.
 """
 
 from __future__ import annotations
+
+import hashlib
+from dataclasses import dataclass
+
+_MAX_HASH = (1 << 64) - 1
