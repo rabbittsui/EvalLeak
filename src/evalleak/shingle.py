@@ -42,3 +42,8 @@ def _hash_shingle(shingle: str, perm: int) -> int:
     payload = f"{perm}\x00{shingle}".encode("utf-8")
     digest = hashlib.sha256(payload).digest()
     return int.from_bytes(digest[:8], "big")
+
+
+@dataclass(frozen=True)
+class MinHash:
+    """A fixed-size MinHash signature over a shingle set."""
