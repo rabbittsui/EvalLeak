@@ -58,3 +58,8 @@ class MinHash:
         An empty set yields the all-maximum signature, which estimates Jaccard
         zero against anything non-empty and one against another empty set.
         """
+        if num_perm <= 0:
+            raise ValueError("num_perm must be positive")
+        signature = [_MAX_HASH] * num_perm
+        for shingle in shingle_set:
+            for perm in range(num_perm):
