@@ -63,3 +63,8 @@ class MinHash:
         signature = [_MAX_HASH] * num_perm
         for shingle in shingle_set:
             for perm in range(num_perm):
+                h = _hash_shingle(shingle, perm)
+                if h < signature[perm]:
+                    signature[perm] = h
+        return cls(signature=tuple(signature), num_perm=num_perm)
+
