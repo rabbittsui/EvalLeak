@@ -73,3 +73,8 @@ class MinHash:
 
         Both signatures must use the same num_perm.
         """
+        if self.num_perm != other.num_perm:
+            raise ValueError("signatures use different num_perm")
+        matches = sum(1 for a, b in zip(self.signature, other.signature) if a == b)
+        return matches / self.num_perm
+
