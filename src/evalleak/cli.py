@@ -36,3 +36,14 @@ def _add_common(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--no-case",
         action="store_true",
+        help="disable case folding",
+    )
+    parser.add_argument(
+        "--no-punctuation",
+        action="store_true",
+        help="disable punctuation removal",
+    )
+    parser.add_argument(
+        "--k",
+        type=int,
+        default=5,
