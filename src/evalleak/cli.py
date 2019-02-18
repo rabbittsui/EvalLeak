@@ -80,3 +80,14 @@ def _config_from_args(args: argparse.Namespace) -> NormaliseConfig:
 def _load_all(args: argparse.Namespace):
     manifests = []
     for path in args.manifests:
+        manifests.append(load_manifest(path))
+    return manifests
+
+
+def _run_compare(args: argparse.Namespace):
+    manifests = _load_all(args)
+    return compare(
+        manifests,
+        config=_config_from_args(args),
+        k=args.k,
+        num_perm=args.num_perm,
