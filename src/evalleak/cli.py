@@ -113,3 +113,14 @@ def _cmd_near(args: argparse.Namespace) -> int:
 def _cmd_report(args: argparse.Namespace) -> int:
     result = _run_compare(args)
     for line in report_module.render_report(result):
+        print(line)
+    return 1 if result.has_findings() else 0
+
+
+def _cmd_version(args: argparse.Namespace) -> int:
+    print(f"evalleak {__version__}")
+    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
