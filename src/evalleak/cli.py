@@ -124,3 +124,14 @@ def _cmd_version(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
+        prog="evalleak",
+        description="Detect contamination between training and evaluation splits.",
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p_exact = sub.add_parser("exact", help="print exact cross-split duplicates")
+    _add_common(p_exact)
+    p_exact.set_defaults(func=_cmd_exact)
+
+    p_near = sub.add_parser("near", help="print near duplicates by Jaccard estimate")
+    _add_common(p_near)
