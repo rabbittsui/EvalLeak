@@ -33,3 +33,10 @@ class NormaliseConfig:
 
     The default enables all three, the most aggressive setting, because that is
     the safest default for contamination detection: it is better to flag a
+    borderline match for a human to dismiss than to miss a real leak.
+    """
+
+    whitespace: bool = True
+    case: bool = True
+    punctuation: bool = True
+
