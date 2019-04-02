@@ -46,3 +46,10 @@ class NormaliseConfig:
             ("whitespace", self.whitespace),
             ("case", self.case),
             ("punctuation", self.punctuation),
+        ]
+        active = [name for name, on in parts if on]
+        return ",".join(active) if active else "none"
+
+
+def _collapse_whitespace(text: str) -> str:
+    return " ".join(text.split())
