@@ -40,3 +40,9 @@ class NormaliseConfig:
     case: bool = True
     punctuation: bool = True
 
+    def describe(self) -> str:
+        """Return a stable one-line description of the active steps."""
+        parts = [
+            ("whitespace", self.whitespace),
+            ("case", self.case),
+            ("punctuation", self.punctuation),
