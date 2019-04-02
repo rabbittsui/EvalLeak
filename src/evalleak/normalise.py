@@ -26,3 +26,10 @@ from dataclasses import dataclass
 
 _PUNCTUATION = set(string.punctuation)
 
+
+@dataclass(frozen=True)
+class NormaliseConfig:
+    """Which normalisation steps are enabled.
+
+    The default enables all three, the most aggressive setting, because that is
+    the safest default for contamination detection: it is better to flag a
