@@ -59,3 +59,10 @@ def _drop_punctuation(text: str) -> str:
     out = []
     for ch in text:
         if ch in _PUNCTUATION:
+            out.append(" ")
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def normalise(text: str, config: NormaliseConfig = NormaliseConfig()) -> str:
