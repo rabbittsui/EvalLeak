@@ -53,3 +53,9 @@ class NormaliseConfig:
 
 def _collapse_whitespace(text: str) -> str:
     return " ".join(text.split())
+
+
+def _drop_punctuation(text: str) -> str:
+    out = []
+    for ch in text:
+        if ch in _PUNCTUATION:
