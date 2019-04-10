@@ -20,3 +20,12 @@ Every record has a unique id within its split. The split name is declared once
 at the top with the `split:` key. Blank lines separate records. A record needs
 both an `id:` and a `text:` line; a record missing either raises ManifestError
 so a malformed fixture fails loudly instead of silently dropping data.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
+class ManifestError(ValueError):
+    """Raised when a manifest cannot be parsed into a clean set of records."""
