@@ -57,3 +57,12 @@ def parse_manifest(source: str, *, filename: str = "<string>") -> Manifest:
     Raises ManifestError on a missing split declaration, a duplicate id, or a
     record that is missing its id or text.
     """
+    split_name: str | None = None
+    records: list[Record] = []
+    seen_ids: set[str] = set()
+
+    current_id: str | None = None
+    current_text: str | None = None
+
+    def flush(line_no: int) -> None:
+        nonlocal current_id, current_text
