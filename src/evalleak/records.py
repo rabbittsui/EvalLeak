@@ -75,3 +75,12 @@ def parse_manifest(source: str, *, filename: str = "<string>") -> Manifest:
         if current_text is None:
             raise ManifestError(
                 f"{filename}:{line_no}: record {current_id!r} is missing a text: line"
+            )
+        if split_name is None:
+            raise ManifestError(
+                f"{filename}:{line_no}: record appears before a split: declaration"
+            )
+        if current_id in seen_ids:
+            raise ManifestError(
+                f"{filename}:{line_no}: duplicate record id {current_id!r}"
+            )
