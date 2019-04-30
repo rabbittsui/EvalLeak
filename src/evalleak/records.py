@@ -84,3 +84,12 @@ def parse_manifest(source: str, *, filename: str = "<string>") -> Manifest:
             raise ManifestError(
                 f"{filename}:{line_no}: duplicate record id {current_id!r}"
             )
+        seen_ids.add(current_id)
+        records.append(Record(split=split_name, record_id=current_id, text=current_text))
+        current_id = None
+        current_text = None
+
+    lines = source.splitlines()
+    for index, raw in enumerate(lines, start=1):
+        line = raw.rstrip("\n")
+        stripped = line.strip()
