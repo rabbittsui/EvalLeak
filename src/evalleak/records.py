@@ -93,3 +93,12 @@ def parse_manifest(source: str, *, filename: str = "<string>") -> Manifest:
     for index, raw in enumerate(lines, start=1):
         line = raw.rstrip("\n")
         stripped = line.strip()
+        if stripped.startswith("#"):
+            continue
+        if stripped == "":
+            flush(index)
+            continue
+        if ":" not in line:
+            raise ManifestError(f"{filename}:{index}: line has no key: {line!r}")
+        key, _, value = line.partition(":")
+        key = key.strip().lower()
