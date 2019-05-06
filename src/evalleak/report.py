@@ -17,3 +17,11 @@ def _rate_pct(value: float) -> str:
 
 def render_exact(report: OverlapReport) -> list[str]:
     lines = ["exact cross-split duplicates:"]
+    if not report.exact:
+        lines.append("  none")
+        return lines
+    for m in report.exact:
+        lines.append(
+            f"  {m.split_a}/{m.id_a} == {m.split_b}/{m.id_b}  digest={m.digest[:12]}"
+        )
+    return lines
