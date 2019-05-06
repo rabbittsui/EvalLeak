@@ -66,3 +66,11 @@ def render_intra(report: OverlapReport) -> list[str]:
         )
     return lines
 
+
+def render_rates(report: OverlapReport) -> list[str]:
+    lines = ["contamination rate per split pair (source -> target):"]
+    if not report.pair_rates:
+        lines.append("  none")
+        return lines
+    for r in report.pair_rates:
+        lines.append(
