@@ -49,3 +49,12 @@ def render_containment(report: OverlapReport) -> list[str]:
         return lines
     for m in report.containment:
         lines.append(
+            f"  {m.split_short}/{m.id_short} inside {m.split_long}/{m.id_long}"
+            f"  position={m.position}"
+        )
+    return lines
+
+
+def render_intra(report: OverlapReport) -> list[str]:
+    lines = ["intra-split duplicates:"]
+    if not report.intra:
