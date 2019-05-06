@@ -58,3 +58,11 @@ def render_containment(report: OverlapReport) -> list[str]:
 def render_intra(report: OverlapReport) -> list[str]:
     lines = ["intra-split duplicates:"]
     if not report.intra:
+        lines.append("  none")
+        return lines
+    for m in report.intra:
+        lines.append(
+            f"  {m.split}/{m.id_a} == {m.split}/{m.id_b}  digest={m.digest[:12]}"
+        )
+    return lines
+
