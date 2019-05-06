@@ -41,3 +41,11 @@ def render_near(report: OverlapReport) -> list[str]:
         )
     return lines
 
+
+def render_containment(report: OverlapReport) -> list[str]:
+    lines = [f"containment (min_length={report.min_containment}):"]
+    if not report.containment:
+        lines.append("  none")
+        return lines
+    for m in report.containment:
+        lines.append(
