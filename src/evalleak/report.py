@@ -82,3 +82,11 @@ def render_rates(report: OverlapReport) -> list[str]:
 
 def render_counts(report: OverlapReport) -> list[str]:
     lines = ["split record counts:"]
+    for split in sorted(report.counts):
+        lines.append(f"  {split}: {report.counts[split]}")
+    return lines
+
+
+def render_report(report: OverlapReport) -> list[str]:
+    """Render the full report as a list of output lines."""
+    lines: list[str] = []
