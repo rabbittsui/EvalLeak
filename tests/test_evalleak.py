@@ -32,3 +32,15 @@ class RecordsTests(unittest.TestCase):
             parse_manifest("id: a\ntext: hello\n")
 
     def test_duplicate_id(self):
+        with self.assertRaises(ManifestError):
+            parse_manifest("split: t\n\nid: a\ntext: x\n\nid: a\ntext: y\n")
+
+    def test_missing_text(self):
+        with self.assertRaises(ManifestError):
+            parse_manifest("split: t\n\nid: a\n")
+
+    def test_comments_ignored(self):
+        m = parse_manifest("# note\nsplit: t\n\n# another\nid: a\ntext: hi\n")
+        self.assertEqual(len(m), 1)
+
+
