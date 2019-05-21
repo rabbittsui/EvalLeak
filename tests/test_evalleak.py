@@ -44,3 +44,16 @@ class RecordsTests(unittest.TestCase):
         self.assertEqual(len(m), 1)
 
 
+class NormaliseTests(unittest.TestCase):
+    def test_whitespace(self):
+        cfg = NormaliseConfig(whitespace=True, case=False, punctuation=False)
+        self.assertEqual(normalise("a\t b\n  c", cfg), "a b c")
+
+    def test_case(self):
+        cfg = NormaliseConfig(whitespace=False, case=True, punctuation=False)
+        self.assertEqual(normalise("ABC", cfg), "abc")
+
+    def test_punctuation(self):
+        cfg = NormaliseConfig(whitespace=True, case=False, punctuation=True)
+        self.assertEqual(normalise("a, b! c.", cfg), "a b c")
+
