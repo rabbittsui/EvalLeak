@@ -57,3 +57,15 @@ class NormaliseTests(unittest.TestCase):
         cfg = NormaliseConfig(whitespace=True, case=False, punctuation=True)
         self.assertEqual(normalise("a, b! c.", cfg), "a b c")
 
+    def test_none(self):
+        cfg = NormaliseConfig(False, False, False)
+        self.assertEqual(normalise("A, B ", cfg), "A, B ")
+        self.assertEqual(cfg.describe(), "none")
+
+    def test_digest_matches_after_normalisation(self):
+        a = "Hello, WORLD!"
+        b = "hello world"
+        self.assertEqual(digest(a), digest(b))
+
+    def test_describe(self):
+        self.assertEqual(NormaliseConfig().describe(), "whitespace,case,punctuation")
