@@ -69,3 +69,15 @@ class NormaliseTests(unittest.TestCase):
 
     def test_describe(self):
         self.assertEqual(NormaliseConfig().describe(), "whitespace,case,punctuation")
+
+
+class ShingleTests(unittest.TestCase):
+    def test_shingles_count(self):
+        s = shingles("abcdef", k=3)
+        self.assertEqual(s, {"abc", "bcd", "cde", "def"})
+
+    def test_short_text(self):
+        self.assertEqual(shingles("ab", k=5), {"ab"})
+        self.assertEqual(shingles("", k=5), set())
+
+    def test_minhash_identical(self):
