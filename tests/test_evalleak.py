@@ -81,3 +81,15 @@ class ShingleTests(unittest.TestCase):
         self.assertEqual(shingles("", k=5), set())
 
     def test_minhash_identical(self):
+        s = shingles("the quick brown fox jumps", k=4)
+        a = MinHash.from_shingles(s)
+        b = MinHash.from_shingles(s)
+        self.assertEqual(a.jaccard(b), 1.0)
+
+    def test_minhash_disjoint(self):
+        a = MinHash.from_shingles(shingles("aaaaaaaaaa", k=3))
+        b = MinHash.from_shingles(shingles("zzzzzzzzzz", k=3))
+        self.assertEqual(a.jaccard(b), 0.0)
+
+    def test_minhash_estimate_within_error(self):
+        # The MinHash estimate should be close to the exact Jaccard.
