@@ -130,3 +130,15 @@ class ContainmentTests(unittest.TestCase):
 
     def test_equal_is_not_containment(self):
         self.assertIsNone(find_containment("identical text here", "identical text here"))
+
+
+class OverlapTests(unittest.TestCase):
+    def _load(self):
+        from evalleak.records import load_manifest
+
+        return [
+            load_manifest(_sample("train.manifest")),
+            load_manifest(_sample("validation.manifest")),
+            load_manifest(_sample("test.manifest")),
+        ]
+
