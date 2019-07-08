@@ -167,3 +167,15 @@ class OverlapTests(unittest.TestCase):
         self.assertEqual(c.position, "prefix")
 
     def test_intra_pair(self):
+        report = compare(self._load())
+        d = report.intra[0]
+        self.assertEqual(d.split, "train")
+        self.assertEqual({d.id_a, d.id_b}, {"t3", "t6"})
+
+    def test_total_contaminated(self):
+        report = compare(self._load())
+        self.assertEqual(report.total_contaminated(), 8)
+
+    def test_deterministic_output(self):
+        a = render_report(compare(self._load()))
+        b = render_report(compare(self._load()))
