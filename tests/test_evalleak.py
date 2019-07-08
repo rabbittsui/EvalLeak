@@ -155,3 +155,15 @@ class OverlapTests(unittest.TestCase):
         self.assertEqual((m.split_a, m.id_a), ("test", "e1"))
         self.assertEqual((m.split_b, m.id_b), ("train", "t2"))
 
+    def test_near_above_threshold(self):
+        report = compare(self._load())
+        self.assertGreaterEqual(report.near[0].jaccard, 0.6)
+
+    def test_containment_pair(self):
+        report = compare(self._load())
+        c = report.containment[0]
+        self.assertEqual((c.split_short, c.id_short), ("test", "e2"))
+        self.assertEqual((c.split_long, c.id_long), ("train", "t5"))
+        self.assertEqual(c.position, "prefix")
+
+    def test_intra_pair(self):
