@@ -142,3 +142,16 @@ class OverlapTests(unittest.TestCase):
             load_manifest(_sample("test.manifest")),
         ]
 
+    def test_all_finding_kinds_present(self):
+        report = compare(self._load())
+        self.assertEqual(len(report.exact), 1)
+        self.assertEqual(len(report.near), 1)
+        self.assertEqual(len(report.containment), 1)
+        self.assertEqual(len(report.intra), 1)
+
+    def test_exact_pair(self):
+        report = compare(self._load())
+        m = report.exact[0]
+        self.assertEqual((m.split_a, m.id_a), ("test", "e1"))
+        self.assertEqual((m.split_b, m.id_b), ("train", "t2"))
+
