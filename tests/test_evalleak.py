@@ -179,3 +179,15 @@ class OverlapTests(unittest.TestCase):
     def test_deterministic_output(self):
         a = render_report(compare(self._load()))
         b = render_report(compare(self._load()))
+        self.assertEqual(a, b)
+
+    def test_no_findings_when_disjoint(self):
+        from evalleak.records import parse_manifest
+
+        m1 = parse_manifest("split: a\n\nid: x\ntext: apples grow on tall trees\n")
+        m2 = parse_manifest("split: b\n\nid: y\ntext: rockets travel through space\n")
+        report = compare([m1, m2])
+        self.assertFalse(report.has_findings())
+
+
+class CliTests(unittest.TestCase):
