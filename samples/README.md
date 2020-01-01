@@ -6,3 +6,7 @@ Each record body is a short, factual sentence written for this repository.
 
 ## Files
 
+- `train.manifest`, split `train`, six records.
+- `validation.manifest`, split `validation`, three records.
+- `test.manifest`, split `test`, three records.
+
