@@ -24,3 +24,7 @@ Each record body is a short, factual sentence written for this repository.
   reported as a prefix containment.
 - Intra-split duplicate: `train/t3` and `train/t6` are the same sentence about
   binary search, inside the same split, which inflates the apparent train size.
+
+## Reproducing the numbers
+
+Run from the project root with the package on the path:
