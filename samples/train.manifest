@@ -2,3 +2,6 @@
 # See samples/README.md for how each record was constructed.
 split: train
 
+id: t1
+text: The mitochondria is the powerhouse of the cell and supplies chemical energy.
+
