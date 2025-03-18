@@ -135,3 +135,26 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_near = sub.add_parser("near", help="print near duplicates by Jaccard estimate")
     _add_common(p_near)
+    p_near.set_defaults(func=_cmd_near)
+
+    p_report = sub.add_parser("report", help="print the full contamination report")
+    _add_common(p_report)
+    p_report.set_defaults(func=_cmd_report)
+
+    p_version = sub.add_parser("version", help="print the version")
+    p_version.set_defaults(func=_cmd_version)
+
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    try:
+        return args.func(args)
+    except (ManifestError, OSError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
