@@ -321,4 +321,4 @@ def _compute_pair_rates(
     rates.sort(key=lambda r: (r.source, r.target))
     return rates
 
-# draft note 1001
+# draft note 1007
