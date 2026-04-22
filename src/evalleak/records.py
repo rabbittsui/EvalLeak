@@ -132,5 +132,3 @@ def load_manifest(path: str) -> Manifest:
     """Read a manifest file from disk and parse it."""
     with open(path, "r", encoding="utf-8") as handle:
         return parse_manifest(handle.read(), filename=path)
-
-# draft note 986
