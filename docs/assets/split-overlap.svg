@@ -56,3 +56,18 @@
   <!-- Contamination edge summary as a labelled table below the bars. -->
   <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
      font-size="13">
+    <text x="32" y="312" font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+          font-size="14" font-weight="700" fill="#1f2933">contamination findings between splits</text>
+
+    <text x="48" y="336" fill="#1f2933">train and test</text>
+    <text x="520" y="336" text-anchor="end" fill="#b45309" font-weight="700">2</text>
+
+    <text x="48" y="358" fill="#1f2933">train and validation</text>
+    <text x="520" y="358" text-anchor="end" fill="#b45309" font-weight="700">1</text>
+
+    <text x="48" y="380" fill="#1f2933">validation and test</text>
+    <text x="520" y="380" text-anchor="end" fill="#7b8794" font-weight="700">0</text>
+  </g>
+</svg>
+
+<!-- draft note 1027 -->
