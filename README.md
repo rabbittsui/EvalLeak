@@ -433,6 +433,3 @@ MIT. See [LICENSE](LICENSE).
   <img src="docs/assets/logo.svg" width="200"
        alt="EvalLeak wordmark with eval in slate and leak in amber, split at the
        morpheme boundary above a baseline rule">
-</p>
-
-<!-- draft note 1022 -->
