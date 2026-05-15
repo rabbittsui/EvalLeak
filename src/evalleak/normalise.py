@@ -87,5 +87,3 @@ def digest(text: str, config: NormaliseConfig = NormaliseConfig()) -> str:
     """
     normalised = normalise(text, config)
     return hashlib.sha256(normalised.encode("utf-8")).hexdigest()
-
-# draft note 1008
