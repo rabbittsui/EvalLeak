@@ -64,6 +64,3 @@ def find_containment(
         return None
     if short_norm in long_norm:
         return _position(long_norm, short_norm)
-    return None
-
-# draft note 1026
