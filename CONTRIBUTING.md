@@ -8,4 +8,4 @@ Thanks for your interest in improving EvalLeak.
 2. Run the test suite before pushing: `pip install -e . && pip install pytest && pytest -q`
 3. Keep changes small and reviewable; describe what and why.
 
-<!-- draft note 1003 -->
+<!-- draft note 1034 -->
