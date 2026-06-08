@@ -92,4 +92,4 @@ def exact_jaccard(a: set[str], b: set[str]) -> float:
         return 1.0
     return len(a & b) / len(union)
 
-# draft note 1004
+# draft note 1039
